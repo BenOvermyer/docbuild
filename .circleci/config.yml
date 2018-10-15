@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: docker build -t benovermyer/docbuild:$CIRCLE_BRANCH .
+      - run: docker push benovermyer/docbuild:$CIRCLE_BRANCH
