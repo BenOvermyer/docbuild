@@ -10,4 +10,4 @@ Includes:
 - python
 - ruby
 - the mdl gem for Markdown linting
-
+- proselint for linting prose
