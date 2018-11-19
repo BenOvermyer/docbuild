@@ -4,6 +4,9 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -t benovermyer/docbuild:$CIRCLE_BRANCH .
-      - run: docker push benovermyer/docbuild:$CIRCLE_BRANCH
+      - run: |
+          TAG=0.1.$CIRCLE_BUILD_NUM
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker build -t benovermyer/docbuild:$TAG .
+          docker push benovermyer/docbuild:$TAG
+          docker push benovermyer/docbuild:latest
